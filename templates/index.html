@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Velocity Prediction</title>
+</head>
+<body>
+    <h1>Velocity Prediction</h1>
+    <form method="post">
+        <label for="param1">A/M Verhätnis [m^2/kg]:</label>
+        <input type="text" id="param1" name="param1" value="{{ request.form.param1 if request.form.param1 else '1.5' }}"><br><br>
+        <label for="param2">Umgebungsdruck [Pa]:</label>
+        <input type="text" id="param2" name="param2" value="{{ request.form.param2 if request.form.param2 else '101325' }}"><br><br>
+        <label for="param3">Tankdurchmesser [m]:</label>
+        <input type="text" id="param3" name="param3" value="{{ request.form.param3 if request.form.param3 else '0.5' }}"><br><br>
+        <label for="param4">Abstand zur Explosion [m]:</label>
+        <input type="text" id="param4" name="param4" value="{{ request.form.param4 if request.form.param4 else '0.5' }}"><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction >=0 %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
+
